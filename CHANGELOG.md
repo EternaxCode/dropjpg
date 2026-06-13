@@ -5,6 +5,13 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.1] — 2026-06-13
+### Changed
+- Release pipeline automated: pushing a `v*` tag builds the DMG on a macOS CI
+  runner and publishes the GitHub Release automatically (`release.sh` + Actions).
+- Version is now single-sourced from the `VERSION` file.
+- No app behavior changes — first CI-built release.
+
 ## [1.0] — 2026-06-13
 ### Added
 - Menu bar app (no Dock icon) with always-on-top drop window.
