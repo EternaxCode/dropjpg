@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DropJPG — Drag, drop, done. Images → JPG for macOS</title>
+<meta name="description" content="Free macOS menu bar app. Drag photos or folders, convert any image (including HEIC) to JPG, auto-rename, and resize — all locally, no upload.">
+<meta property="og:title" content="DropJPG — Images → JPG for macOS">
+<meta property="og:description" content="Drag, drop, done. Convert images (incl. HEIC) to JPG from your menu bar.">
+<meta property="og:image" content="https://eternaxcode.github.io/dropjpg/screenshot.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icon.png">
+<style>
+  :root{
+    --blue:#667dfa; --purple:#9954eb;
+    --ink:#1a1a24; --muted:#5c5c6b; --line:#e6e6ee; --bg:#ffffff; --soft:#f6f6fb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo",sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* hero */
+  .hero{
+    text-align:center;color:#fff;padding:80px 24px 96px;
+    background:linear-gradient(160deg,var(--blue),var(--purple));
+  }
+  .hero img.appicon{width:128px;height:128px;border-radius:28px;
+    box-shadow:0 18px 50px rgba(0,0,0,.28);}
+  .hero h1{font-size:54px;font-weight:800;letter-spacing:-1.5px;margin:24px 0 8px}
+  .hero .tag{font-size:21px;font-weight:500;opacity:.95}
+  .hero .sub{font-size:15px;opacity:.82;margin-top:6px}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:13px;
+    font-weight:700;font-size:16px;text-decoration:none;transition:transform .12s,box-shadow .12s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:#fff;color:var(--purple);box-shadow:0 10px 30px rgba(0,0,0,.22)}
+  .btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .req{margin-top:16px;font-size:13px;opacity:.8}
+
+  /* sections */
+  section{padding:72px 0}
+  h2{font-size:30px;font-weight:800;letter-spacing:-.6px;text-align:center;margin-bottom:8px}
+  .lead{text-align:center;color:var(--muted);margin-bottom:44px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card .ico{font-size:26px}
+  .card h3{font-size:17px;margin:12px 0 6px}
+  .card p{font-size:14px;color:var(--muted)}
+
+  .shot{background:var(--soft)}
+  .shot img{display:block;margin:0 auto;width:100%;max-width:380px;border-radius:16px;
+    box-shadow:0 16px 50px rgba(40,30,90,.18)}
+
+  /* steps */
+  .steps{counter-reset:s;max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+  .step{display:flex;gap:16px;align-items:flex-start}
+  .step .n{flex:0 0 34px;height:34px;border-radius:50%;
+    background:linear-gradient(160deg,var(--blue),var(--purple));color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700}
+  .step h3{font-size:16px;margin-bottom:2px}
+  .step p{font-size:14px;color:var(--muted)}
+  code{background:#11111a;color:#e9e9f4;padding:3px 8px;border-radius:6px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  .note{max-width:680px;margin:26px auto 0;font-size:13px;color:var(--muted);
+    background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+
+  /* cta + footer */
+  .cta{text-align:center;background:linear-gradient(160deg,var(--blue),var(--purple));color:#fff}
+  .cta h2{color:#fff}
+  .cta .lead{color:rgba(255,255,255,.9)}
+  footer{padding:40px 24px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  footer a{color:var(--purple);text-decoration:none;font-weight:600}
+  @media(max-width:720px){
+    .hero h1{font-size:40px}.grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="appicon" src="icon.png" alt="DropJPG icon">
+  <h1>DropJPG</h1>
+  <p class="tag">Drag, drop, done.</p>
+  <p class="sub">Convert any image — including HEIC — to JPG, right from your menu bar.</p>
+  <div class="btns">
+    <a class="btn btn-primary" href="https://github.com/EternaxCode/dropjpg/releases/latest/download/DropJPG.dmg">⬇ Download for macOS</a>
+    <a class="btn btn-ghost" href="https://github.com/EternaxCode/dropjpg">★ View on GitHub</a>
+  </div>
+  <p class="req">macOS 12+ · Apple Silicon &amp; Intel · 100% on-device · free &amp; open source</p>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Why DropJPG</h2>
+    <p class="lead">No uploads, no accounts, no nonsense. It just converts.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🖼️</div><h3>HEIC &amp; everything</h3>
+        <p>JPEG, PNG, GIF, TIFF, WebP, and Apple HEIC/HEIF — all to clean JPG via the built-in macOS engine.</p></div>
+      <div class="card"><div class="ico">📂</div><h3>Drop files or folders</h3>
+        <p>Drag a whole folder; it recurses into subfolders and handles everything at once.</p></div>
+      <div class="card"><div class="ico">🔢</div><h3>Auto-rename</h3>
+        <p>Output lands in <code>~/Desktop/&lt;name&gt;/</code> numbered <code>name_001.jpg</code>, <code>002</code>…</p></div>
+      <div class="card"><div class="ico">📐</div><h3>Resize on the fly</h3>
+        <p>Set a target width in pixels; aspect ratio is preserved automatically.</p></div>
+      <div class="card"><div class="ico">🔒</div><h3>Private by design</h3>
+        <p>Everything runs locally. Your photos never leave your Mac. Originals are kept untouched.</p></div>
+      <div class="card"><div class="ico">🧭</div><h3>Lives in the menu bar</h3>
+        <p>No Dock clutter. Click the icon, drop, name, convert. The window stays on top.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="shot">
+  <div class="wrap">
+    <h2>One small window</h2>
+    <p class="lead">Drop → name → convert. That's the whole app.</p>
+    <img src="screenshot.png" alt="DropJPG window">
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Install in 60 seconds</h2>
+    <p class="lead">설치 60초 · It's not signed with a paid Apple cert, so one extra step on first launch.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div>
+        <h3>Download &amp; open the DMG</h3>
+        <p>Grab <code>DropJPG.dmg</code> and drag <strong>DropJPG.app</strong> into <strong>Applications</strong>.</p></div></div>
+      <div class="step"><div class="n">2</div><div>
+        <h3>Clear the Gatekeeper quarantine (first launch only)</h3>
+        <p>Double-click <strong>먼저 실행 - 설치도우미.command</strong> inside the DMG, <em>or</em> run in Terminal:</p>
+        <p style="margin-top:8px"><code>xattr -dr com.apple.quarantine /Applications/DropJPG.app</code></p></div></div>
+      <div class="step"><div class="n">3</div><div>
+        <h3>Launch &amp; convert</h3>
+        <p>Open DropJPG — its icon appears in the menu bar. Click it → 사진 변환 → drop your images.</p></div></div>
+    </div>
+    <p class="note">왜 추가 단계? 개발자 인증서($99/년)가 없어 macOS가 차단합니다. 위 명령은 "인터넷에서 받음" 격리 속성만 제거합니다 — 그 외엔 아무것도 바꾸지 않습니다.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Get DropJPG</h2>
+    <p class="lead">Free forever. If it saves you time, buy me a coffee ☕</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://github.com/EternaxCode/dropjpg/releases/latest/download/DropJPG.dmg">⬇ Download</a>
+      <a class="btn btn-ghost" href="https://ko-fi.com/eternaxcode">☕ Ko-fi</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Made by <a href="https://github.com/EternaxCode">EternaxCode</a> ·
+     <a href="https://github.com/EternaxCode/dropjpg">GitHub</a> ·
+     <a href="https://ko-fi.com/eternaxcode">Ko-fi</a> ·
+     MIT License</p>
+</footer>
+
+</body>
+</html>
