@@ -7,6 +7,7 @@ cd "$(dirname "$0")"
 APP="DropJPG.app"
 MACOS="$APP/Contents/MacOS"
 RES="$APP/Contents/Resources"
+VERSION="$(cat VERSION 2>/dev/null || echo 1.0)"
 
 echo "==> Cleaning old bundle"
 rm -rf "$APP"
@@ -35,7 +36,7 @@ echo "==> Compiling Swift"
 swiftc -O -o "$MACOS/DropJPG" Sources/main.swift -framework Cocoa
 
 echo "==> Writing Info.plist"
-cat > "$APP/Contents/Info.plist" <<'PLIST'
+cat > "$APP/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -43,8 +44,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
     <key>CFBundleName</key>            <string>DropJPG</string>
     <key>CFBundleDisplayName</key>     <string>DropJPG</string>
     <key>CFBundleIdentifier</key>      <string>com.eternaxcode.dropjpg</string>
-    <key>CFBundleVersion</key>         <string>1.0</string>
-    <key>CFBundleShortVersionString</key><string>1.0</string>
+    <key>CFBundleVersion</key>         <string>$VERSION</string>
+    <key>CFBundleShortVersionString</key><string>$VERSION</string>
     <key>CFBundlePackageType</key>     <string>APPL</string>
     <key>CFBundleExecutable</key>      <string>DropJPG</string>
     <key>CFBundleIconFile</key>        <string>AppIcon</string>

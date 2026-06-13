@@ -1,5 +1,8 @@
 # DropJPG
 
+[![Release](https://github.com/EternaxCode/dropjpg/actions/workflows/release.yml/badge.svg)](https://github.com/EternaxCode/dropjpg/actions/workflows/release.yml)
+[![Latest release](https://img.shields.io/github/v/release/EternaxCode/dropjpg)](https://github.com/EternaxCode/dropjpg/releases/latest)
+
 A tiny macOS **menu bar** app that converts images to JPG. Drag photos or
 folders onto it, type a name, and every image is converted to
 `~/Desktop/<name>/<name>_001.jpg`, `<name>_002.jpg`, … — with optional resizing.
@@ -66,6 +69,18 @@ Requires Xcode Command Line Tools (`swiftc`). No other dependencies.
 ```
 
 Icons are generated from `Sources/gen_icons.swift` (CoreGraphics, no design tools).
+
+## Releasing
+
+Releases are automated. Bump the version and push a tag:
+
+```bash
+./release.sh 1.1     # bumps VERSION, commits, tags v1.1, pushes
+```
+
+The [`Release`](.github/workflows/release.yml) GitHub Actions workflow then builds
+the DMG on a macOS runner and publishes a GitHub Release with the asset attached.
+The single source of truth for the version is the [`VERSION`](VERSION) file.
 
 ## License
 
