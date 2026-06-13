@@ -7,6 +7,8 @@ A tiny macOS **menu bar** app that converts images to JPG. Drag photos or
 folders onto it, type a name, and every image is converted to
 `~/Desktop/<name>/<name>_001.jpg`, `<name>_002.jpg`, … — with optional resizing.
 
+**🌐 Website: [eternaxcode.github.io/dropjpg](https://eternaxcode.github.io/dropjpg/)** · **[⬇ Download latest](https://github.com/EternaxCode/dropjpg/releases/latest/download/DropJPG.dmg)**
+
 > 한국어 안내는 아래 [설치 방법](#설치-방법) 참고.
 
 <p align="center">
