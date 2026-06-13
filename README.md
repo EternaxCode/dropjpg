@@ -9,7 +9,10 @@ folders onto it, type a name, and every image is converted to
 
 > 한국어 안내는 아래 [설치 방법](#설치-방법) 참고.
 
-![icon](Resources/appicon.png)
+<p align="center">
+  <img src="Resources/appicon.png" width="120" alt="DropJPG icon"><br><br>
+  <img src="docs/screenshot.png" width="380" alt="DropJPG window">
+</p>
 
 ## Features
 
@@ -81,6 +84,14 @@ Releases are automated. Bump the version and push a tag:
 The [`Release`](.github/workflows/release.yml) GitHub Actions workflow then builds
 the DMG on a macOS runner and publishes a GitHub Release with the asset attached.
 The single source of truth for the version is the [`VERSION`](VERSION) file.
+
+## Support / 후원
+
+DropJPG is free and open source. If it saved you some time, you can buy me a coffee ☕
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/eternaxcode)
+
+> 무료 오픈소스입니다. 유용했다면 커피 한 잔 부탁드려요 → https://ko-fi.com/eternaxcode
 
 ## License
 

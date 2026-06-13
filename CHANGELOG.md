@@ -4,6 +4,12 @@ All notable changes to DropJPG are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
+### Added
+- README screenshot (rendered UI mockup) and app-icon hero.
+- Ko-fi sponsor button (`.github/FUNDING.yml`) and Support section.
+- `DROPJPG_AUTOSHOW=1` env opens the window with sample data (for docs).
+### Changed
+- CI: `actions/checkout@v5` + force Node24 runtime (Node20 deprecation).
 
 ## [1.1] — 2026-06-13
 ### Changed

@@ -377,6 +377,17 @@ final class DropWindowController: NSWindowController {
         showWindow(nil)
         window?.makeKeyAndOrderFront(nil)
     }
+
+    /// Populate fields with sample content for documentation screenshots.
+    func fillDemo() {
+        let samples = ["IMG_4821.HEIC", "IMG_4822.HEIC", "sunset.png", "scan.webp", "receipt.pdf"]
+        countLabel.stringValue = "끌어다 놓은 파일: \(samples.count)개"
+        listText.string = samples.map { "• " + $0 }.joined(separator: "\n")
+        nameField.stringValue = "제주여행"
+        widthField.stringValue = "1920"
+        statusLabel.textColor = .systemGreen
+        statusLabel.stringValue = "완료! 변환 4, 복사 1"
+    }
 }
 
 // MARK: - App delegate
@@ -401,6 +412,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "종료", action: #selector(quit), keyEquivalent: "q"))
         menu.items.forEach { $0.target = self }
         statusItem.menu = menu
+
+        // Screenshot mode: auto-open the window with sample data (for README/docs).
+        if ProcessInfo.processInfo.environment["DROPJPG_AUTOSHOW"] == "1" {
+            openDropWindow()
+            dropController?.fillDemo()
+        }
     }
 
     @objc private func openDropWindow() {
